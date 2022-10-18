@@ -91,15 +91,24 @@
 // ];
 // console.log(ages);
 
-const friends = ["Shubham", "Mandar", "Kiran"];
-const newLength = friends.push("Kalpesh");
-friends.unshift("Mayur");
-console.log(friends, newLength);
-const popped = friends.pop();
-friends.shift();
-console.log(friends, popped);
-console.log(friends.indexOf("Shubham"));
-console.log(friends.indexOf("Himani"));
-friends.push(22);
-console.log(friends.includes("Shubham"));
-console.log(friends.includes("Himani"));
+// const friends = ["Shubham", "Mandar", "Kiran"];
+// const newLength = friends.push("Kalpesh");
+// friends.unshift("Mayur");
+// console.log(friends, newLength);
+// const popped = friends.pop();
+// friends.shift();
+// console.log(friends, popped);
+// console.log(friends.indexOf("Shubham"));
+// console.log(friends.indexOf("Himani"));
+// friends.push(22);
+// console.log(friends.includes("Shubham"));
+// console.log(friends.includes("Himani"));
+
+const calTip = function (bills) {
+  return bills >= 50 && bills <= 300 ? bills * 0.15 : bills * 0.2;
+};
+
+const bills = [125, 555, 44];
+const tip = [calTip(bills[0]), calTip(bills[1]), calTip([bills[2]])];
+const totals = [bills[0] + tip[0], bills[1] + tip[1] + bills[2] + tip[2]];
+console.log(bills, "bill", tip, "tip", totals, "total");
