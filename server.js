@@ -1,3 +1,5 @@
+// import fetch from "node-fetch";
+
 // const people = [
 //   {
 //     name: "Jhon",
@@ -445,70 +447,272 @@
 
 // console.log(state);
 
+// const people = [
+//   {
+//     name: "Bob",
+//     age: 20,
+//     position: "Developer",
+//   },
+//   {
+//     name: "Peter",
+//     age: 25,
+//     position: "Designer",
+//   },
+//   {
+//     name: "Susy",
+//     age: 30,
+//     position: "The Boss",
+//   },
+//   {
+//     name: "Anna",
+//     age: 35,
+//     position: "Intern",
+//   },
+// ];
+
+// const youngPeople = people.filter((item) => {
+//   return item.age < 30;
+// });
+// console.log(youngPeople);
+
+// const profile = people.filter((item) => {
+//   return item.position === "Developer";
+// });
+// console.log(profile);
+
+// const staff = [
+//   {
+//     name: "Bob",
+//     age: 20,
+//     position: "Developer",
+//     salary: 100,
+//   },
+//   {
+//     name: "Peter",
+//     age: 25,
+//     position: "Designer",
+//     salary: 300,
+//   },
+//   {
+//     name: "Susy",
+//     age: 30,
+//     position: "The Boss",
+//     salary: 400,
+//   },
+//   {
+//     name: "Anna",
+//     age: 35,
+//     position: "Intern",
+//     salary: 10,
+//   },
+// ];
+
+// const income = staff.reduce((initial, total) => {
+//   console.log("total", initial);
+//   console.log("initial", total.salary);
+//   initial += total.salary;
+//   return initial;
+// }, 0);
+// console.log("income", income);
+
+// const cart = [
+//   {
+//     title: "Samsung Galaxy S7",
+//     price: 599.9,
+//     amount: 1,
+//   },
+//   {
+//     title: "Google Pixcel",
+//     price: 499.9,
+//     amount: 2,
+//   },
+//   {
+//     title: "Vivo V27",
+//     price: 399.9,
+//     amount: 4,
+//   },
+//   {
+//     title: "iPhone 14",
+//     price: 799.9,
+//     amount: 6,
+//   },
+// ];
+
+// let total = cart.reduce(
+//   (total, cartItem) => {
+//     const { price, amount } = cartItem;
+//     total.totalItem += amount;
+//     total.cartItem += amount * price;
+//     return total;
+//   },
+//   {
+//     totalItem: 0,
+//     cartItem: 0,
+//   }
+// );
+// console.log(total);
+/*
+const url = "https://api.github.com/users/john-smilga/repos?per_page=100";
+
+const fetchRepos = async () => {
+  const response = await fetch(url);
+  const data = await response.json();
+  // console.log("data.length", data.length);
+  const newData = data.reduce((total, repo) => {
+    const { language } = repo;
+    // if (language) {
+    //   if (total[language]) {
+    //     total[language] = total[language] + 1;
+    //   } else {
+    //     total[language] = 1;
+    //   }
+    // }
+
+    if (language) {
+      total[language] = total[language] + 1 || 1;
+    }
+    return total;
+  }, {});
+  console.log("New Data", newData);
+};
+fetchRepos();
+
+
+const fruit = ["apple", "orange", "banana", "mango", "pear"];
+
+const fruit1 = fruit[1];
+const fruit0 = fruit[0];
+const fruit3 = fruit[3];
+
+console.log(fruit1, fruit0, fruit3);
+
+const friends = ["Mandar", "Pushpak", "Sagar", "Tushar", "Geet", "Kiran"];
+
+const [Car, , Cycle, , Man, Apple] = friends;
+
+console.log(Apple, Man, Cycle, Car);
+
+// let first = "Bob";
+// let second = "Jhon";
+
+// let temp = second;
+// second = first;
+// first = temp;
+// console.log(first, second);
+
+// [second, first] = [first, second];
+// console.log(first, second);
+
+const bob = {
+  first: "Smith",
+  last: "sander",
+  city: "chicago",
+  sibling: {
+    sister: "jane",
+  },
+};
+const last = "some value";
+const {
+  first,
+  sibling,
+  city,
+  last: shake,
+  sibling: { sister: anna },
+} = bob;--
+console.log(sibling, first, city, shake, anna);
+
+function peronName({ first, last, city, sibling: { sister: favorite } }) {
+  console.log(first, last, city, favorite);
+}
+peronName(bob);
+
+
+const fruits = ["apple", "mango", "orange", "banana", "pear"];
+
+const [first, ...restOfTheFruits] = fruits;
+console.log(first, restOfTheFruits);
+
+const specificFruit = restOfTheFruits.find((item) => item === "orange");
+console.log(specificFruit);
+
+const person = { name: "shubham", job: "developer", city: "mumbai" };
+const { name, ...rest } = person;
+console.log(name, rest);
+
+const getAverage = (name, ...scores) => {
+  console.log(name);
+  console.log(scores);
+
+  const testAverage =
+    scores.reduce((number, value) => {
+      return (number += value);
+    }, 0) / scores.length;
+  console.log(testAverage);
+};
+const testScore = [80, 90, 85, 78];
+getAverage(person.name, ...testScore);
+
+
+const udemy = "React Development";
+
+const letter = [...udemy];
+
+const boys = ["mandar", "shubham", "sagar", "tushar"];
+
+const girls = ["himani", "priyanka", "nidhi", "sanjana"];
+
+const bestFriend = ["pushpak"];
+
+const group = [...boys, ...bestFriend, ...girls];
+console.log(group);
+
+const newFriends = [...group];
+newFriends[0] = "nikita";
+console.log("group", group);
+console.log("newFriends", newFriends);
+
+
+const udemy = "udemy";
+
+console.log(Array.from(udemy));
+
+const text = document.querySelectorAll(".text");
+const newText = Array.from(text).find((item) => item.textContent === "person");
+console.log(newText);
+
+const items = Array.from({ length: 120 }, (_, index) => {
+  return index;
+});
+
+const textPage = 14;
+const page = Math.round(items.length / textPage);
+console.log(page);
+
+const newItems = Array.from({ length: page }, (_, index) => {
+  const start = index * textPage;
+  const tempItems = items.slice(start, start + textPage);
+  return tempItems;
+});
+console.log("newItems", newItems);
+*/
+
 const people = [
   {
-    name: "Bob",
-    age: 20,
-    position: "Developer",
+    name: "bob",
+    location: { street: "123 main street", timezone: { offset: "+7:00" } },
   },
+  { name: "peter", location: { street: "123 Pine street" } },
   {
-    name: "Peter",
-    age: 25,
-    position: "Designer",
-  },
-  {
-    name: "Susy",
-    age: 30,
-    position: "The Boss",
-  },
-  {
-    name: "Anna",
-    age: 35,
-    position: "Intern",
+    name: "susan",
+    location: { street: "123 Apple street", timezone: { offset: "+9:00" } },
   },
 ];
 
-const youngPeople = people.filter((item) => {
-  return item.age < 30;
+people.forEach((item) => {
+  console.log(
+    item?.location?.timezone?.offset || "nahi hai bhai value aage ja"
+  );
+  // console.log(
+  //   item.location && item.location.timezone && item.location.timezone.offset
+  // );
 });
-console.log(youngPeople);
-
-const profile = people.filter((item) => {
-  return item.position === "Developer";
-});
-console.log(profile);
-
-const staff = [
-  {
-    name: "Bob",
-    age: 20,
-    position: "Developer",
-    salary: 100,
-  },
-  {
-    name: "Peter",
-    age: 25,
-    position: "Designer",
-    salary: 300,
-  },
-  {
-    name: "Susy",
-    age: 30,
-    position: "The Boss",
-    salary: 400,
-  },
-  {
-    name: "Anna",
-    age: 35,
-    position: "Intern",
-    salary: 10,
-  },
-];
-
-const income = staff.reduce((initial, total) => {
-  console.log("total", initial);
-  console.log("initial", total.salary);
-  initial += total.salary;
-  return initial;
-}, 0);
-console.log("income", income);
